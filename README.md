@@ -2,6 +2,7 @@
 ## Servidor Personal de Transferencia de Archivos
 
 ### 📌 Objetivo del Proyecto
+
 Este proyecto busca crear un **servidor personal de transferencia de archivos**, pensado para uso **individual o familiar**, sin depender de servicios comerciales ni infraestructura paga.
 
 El sistema permite:
@@ -16,6 +17,7 @@ El sistema permite:
 ---
 
 ### 🏗️ Arquitectura General
+
 [ Frontend (Next.js) ]
 ↓
 [ BFF - Python (Auth, Seguridad) ]
@@ -27,6 +29,7 @@ El sistema permite:
 ---
 
 ### 📂 Estructura de Carpetas
+
 ```txt
 Backend/
 ├── cmd/server/           # main.go (punto de entrada del servidor Go)
@@ -109,6 +112,7 @@ docs/
 - [Otros](docs/otros/)
 
 ### 🔐 Filosofía de Seguridad
+
 - Nada público por defecto  
 - Ningún archivo accesible sin autenticación  
 - Permisos **explícitos por archivo**  
@@ -118,6 +122,7 @@ docs/
 ---
 
 ### 🗄️ Base de Datos (SQLite)
+
 La base de datos **no almacena archivos**, solo **estado, seguridad y control**.
 
 Tablas principales:
@@ -132,6 +137,7 @@ Tablas principales:
 ---
 
 ### 🔑 Sistema de Autenticación
+
 - **Login**: usuario + password (bcrypt/argon2)  
 - **Segundo factor (TOTP)**: compatible con Google Authenticator/Authy  
 - **Tokens**:  
@@ -141,6 +147,7 @@ Tablas principales:
 ---
 
 ### 🛂 Control de Acceso
+
 - Roles: `admin`, `user`  
 - Permisos por archivo: `read`, `manage`  
 - Regla: *nadie puede descargar un archivo sin un permiso explícito*  
@@ -148,8 +155,8 @@ Tablas principales:
 ---
 
 ### 🌐 Endpoints Principales
-#### Autenticación
 
+#### Autenticación
 POST   /auth/login
 POST   /auth/totp/verify
 POST   /auth/refresh
@@ -168,6 +175,7 @@ POST   /transfers/{id}/consume   # marcar como consumido
 ---
 
 ### 📲 Flujo de Uso
+
 #### Subida desde móvil
 1. Login + TOTP  
 2. Crear transferencia  
@@ -184,6 +192,7 @@ POST   /transfers/{id}/consume   # marcar como consumido
 ---
 
 ### 🗂️ Gestión de Archivos
+
 - Archivos viven en carpeta temporal del proyecto  
 - El proyecto **no controla** la ubicación final  
 - Limpieza y archivado mediante scripts externos  
@@ -191,6 +200,7 @@ POST   /transfers/{id}/consume   # marcar como consumido
 ---
 
 ### 🚀 Escalabilidad y Futuro
+
 - Docker  
 - Más roles  
 - Enlaces temporales  
@@ -199,6 +209,7 @@ POST   /transfers/{id}/consume   # marcar como consumido
 ---
 
 ### 📖 Principios Clave
+
 - Seguridad primero  
 - Control explícito  
 - Simplicidad  
