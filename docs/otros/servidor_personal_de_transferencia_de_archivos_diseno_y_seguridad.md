@@ -27,6 +27,51 @@ No es un sistema de almacenamiento en la nube, sino un **puente de transferencia
 [ Disco local (carpeta temporal) ]
 ```
 
+Backend/
+├── cmd/
+│   └── server/           # main.go (punto de entrada del servidor Go)
+├── pkg/
+│   ├── auth/             # autenticación y autorización
+│   ├── grpc/             # implementación de servicios gRPC
+│   ├── storage/          # lógica de almacenamiento de archivos
+│   └── utils/            # funciones auxiliares y helpers
+├── proto/                # contratos gRPC (.proto)
+└── tests/
+    ├── e2e/              # pruebas end-to-end con BFF
+    ├── integration/      # pruebas de integración de servicios gRPC
+    └── unit/             # pruebas unitarias de funciones internas
+
+BFF/
+├── app/
+│   ├── grpc_clients/     # clientes gRPC para hablar con Backend
+│   ├── models/           # modelos de datos (Pydantic)
+│   ├── routes/           # endpoints REST (ej: auth.py, upload.py)
+│   ├── services/         # lógica de negocio (validaciones, seguridad)
+│   └── utils/            # middlewares y helpers
+├── database/
+│   └── backups/          # copias de seguridad de database.db
+├── tests/
+│   ├── e2e/              # pruebas completas con Backend simulado
+│   ├── integration/      # pruebas de endpoints REST
+│   └── unit/             # pruebas unitarias de funciones
+│       └── Scripts/      # scripts auxiliares para testing
+Frontend/
+└── src/
+    ├── app/              # rutas App Router (Next.js 13+)
+    ├── components/       # componentes reutilizables
+    ├── styles/           # estilos globales y específicos
+    └── tests/
+        ├── e2e/          # pruebas end-to-end (ej. Playwright/Cypress)
+        ├── integration/  # pruebas de integración de componentes
+        └── unit/         # pruebas unitarias de funciones y hooks
+├── nginx-1.28.1/             # servidor Nginx descargado (binarios y conf)
+└── docs/ # documentación del proyecto 
+    ├── estructura.md # árbol de carpetas y explicación 
+    ├── database.md # tablas SQL y notas de uso 
+    ├── endpoints.md # API REST y gRPC 
+    ├── seguridad.md # decisiones de seguridad 
+    └── roadmap.md # mejoras futuras
+
 ### Componentes
 
 - **Frontend (Next.js)**
