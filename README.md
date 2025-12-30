@@ -102,6 +102,25 @@ docs/
     └── instalacion.md     # guía rápida para levantar todo el sistema
 
 └── otros/               # documentación complementaria
+logs/ 
+├── backend/ 
+│   ├── auth/ 
+│   │   ├── backend_auth_2025-12-30.log 
+│   └── storage/ 
+│       ├── backend_storage_2025-12-30.log 
+├── bff/ 
+│   ├── auth/ 
+│   │   ├── bff_auth_2025-12-30.log 
+│   └── db/ 
+│       ├── bff_db_2025-12-30.log 
+└── frontend/ 
+    ├── login/ 
+    │   ├── frontend_login_2025-12-30.log 
+    └── upload/ 
+        ├── frontend_upload_2025-12-30.log
+└── messages/ 
+    ├── system_messages.json # mensajes internos para logs y debugging 
+    └── user_messages.json # mensajes visibles para el usuario
 
 ## 📖 Documentación
 
